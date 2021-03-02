@@ -433,7 +433,6 @@
             android:authorities="com.mgoogle.android.gms.fonts"
             android:exported="true" />
 
-        <!-- microG Settings shown in Launcher -->
         <activity
             android:name="org.microg.gms.ui.SettingsActivity"
             android:icon="@mipmap/ic_microg_settings"
@@ -447,10 +446,6 @@
                     android:host="exposure-notifications-rpis"
                     android:scheme="x-gms-settings" />
                 <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.APPLICATION_PREFERENCES" />
@@ -467,6 +462,20 @@
             android:process=":ui"
             android:roundIcon="@mipmap/ic_microg_settings"
             android:taskAffinity="org.microg.gms.settings" />
+
+        <!-- microG Settings shown in Launcher -->
+        <activity-alias
+            android:name="org.microg.gms.ui.SettingsActivityLauncher"
+            android:targetActivity="org.microg.gms.ui.SettingsActivity"
+            android:enabled="false"
+            android:exported="true">
+
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+
+        </activity-alias>
 
         <!-- microG Settings embedded in System Settings on SDK 23 and newer -->
         <activity-alias

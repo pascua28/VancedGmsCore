@@ -5,11 +5,14 @@
 
 package org.microg.gms.ui
 
+import android.content.ComponentName
 import android.content.Context
+import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.preference.Preference
+import androidx.preference.SwitchPreferenceCompat
 import com.mgoogle.android.gms.R
 import org.microg.gms.checkin.CheckinPrefs
 import org.microg.gms.gcm.GcmDatabase
@@ -22,6 +25,8 @@ import org.microg.tools.ui.ResourceSettingsFragment
 class SettingsFragment : ResourceSettingsFragment() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         super.onCreatePreferences(savedInstanceState, rootKey)
+
+        val pm = requireActivity().packageManager
 
         findPreference<Preference>(PREF_CHECKIN)!!.onPreferenceClickListener = Preference.OnPreferenceClickListener {
             findNavController().navigate(requireContext(), R.id.openCheckinSettings)
@@ -44,6 +49,24 @@ class SettingsFragment : ResourceSettingsFragment() {
             true
         }
         findPreference<Preference>(PREF_ABOUT)!!.summary = getString(R.string.about_version_str, AboutFragment.getSelfVersion(context))
+        findPreference<SwitchPreferenceCompat>(PREF_CAST_HIDE_LAUNCHER_ICON)?.apply {
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+                setOnPreferenceChangeListener { _, newValue ->
+                    pm.setComponentEnabledSetting(
+                        ComponentName.createRelative(requireActivity(), "org.microg.gms.ui.SettingsActivityLauncher"),
+                        when (newValue) {
+                            true -> PackageManager.COMPONENT_ENABLED_STATE_DISABLED
+                            else -> PackageManager.COMPONENT_ENABLED_STATE_ENABLED
+                        },
+                        PackageManager.DONT_KILL_APP
+                    )
+                    true
+                }
+            } else {
+                preferenceScreen.removePreference(this)
+            }
+
+        }
     }
 
     override fun onResume() {
@@ -85,6 +108,7 @@ class SettingsFragment : ResourceSettingsFragment() {
         const val PREF_UNIFIEDNLP = "pref_unifiednlp"
         const val PREF_CHECKIN = "pref_checkin"
         const val PREF_EXPOSURE = "pref_exposure"
+        const val PREF_CAST_HIDE_LAUNCHER_ICON = "pref_hide_launcher_icon"
     }
 
     init {
