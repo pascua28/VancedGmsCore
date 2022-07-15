@@ -55,9 +55,6 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
@@ -107,49 +104,6 @@
             android:name="org.microg.gms.provision.ProvisionService"
             android:exported="true"
             android:permission="org.microg.gms.PROVISION" />
-
-        <!-- Location -->
-
-        <activity
-            android:name="org.microg.nlp.ui.BackendSettingsActivity"
-            android:process=":ui" />
-
-        <activity
-            android:name="org.microg.gms.ui.PlacePickerActivity"
-            android:exported="true"
-            android:label="@string/pick_place_title"
-            android:process=":ui"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-            <intent-filter>
-                <action android:name="com.google.android.gms.location.places.ui.PICK_PLACE" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <service android:name="org.microg.gms.places.GeoDataService">
-            <intent-filter>
-                <action android:name="com.google.android.gms.location.places.GeoDataApi" />
-                <action android:name="com.google.android.gms.location.places.PlacesApi" />
-            </intent-filter>
-        </service>
-
-        <service android:name="org.microg.gms.places.PlaceDetectionService">
-            <intent-filter>
-                <action android:name="com.google.android.gms.location.places.PlaceDetectionApi" />
-            </intent-filter>
-        </service>
-
-        <service
-            android:name="org.microg.gms.wearable.location.WearableLocationService">
-            <intent-filter>
-                <action android:name="com.google.android.gms.wearable.MESSAGE_RECEIVED" />
-                <data
-                    android:host="*"
-                    android:pathPrefix="/com/google/android/location/fused/wearable"
-                    android:scheme="wear" />
-            </intent-filter>
-        </service>
 
         <provider
             android:name="org.microg.mgms.settings.SettingsProvider"
@@ -306,14 +260,6 @@
             <meta-data
                 android:name="android.content.SyncAdapter"
                 android:resource="@xml/contact_syncadapter" />
-        </service>
-
-        <!-- Wearable -->
-
-        <service android:name="org.microg.gms.wearable.WearableService">
-            <intent-filter>
-                <action android:name="com.google.android.gms.wearable.BIND" />
-            </intent-filter>
         </service>
 
         <!-- Auth -->
@@ -527,19 +473,6 @@
                 <action android:name="com.google.android.gms.accountsettings.PRIVACY_SETTINGS" />
                 <action android:name="com.google.android.gms.accountsettings.SECURITY_SETTINGS" />
                 <action android:name="com.google.android.gms.accountsettings.action.VIEW_SETTINGS" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name="org.microg.gms.ui.LocationSettingsActivity"
-            android:process=":ui"
-            android:taskAffinity="org.microg.gms.settings">
-            <intent-filter>
-                <action android:name="com.google.android.gms.location.settings.LOCATION_HISTORY" />
-                <action android:name="com.google.android.location.settings.LOCATION_REPORTING_SETTINGS" />
-                <action android:name="com.google.android.gms.location.settings.LOCATION_REPORTING_SETTINGS" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -763,8 +696,6 @@
                 <action android:name="com.google.android.gms.learning.predictor.START" />
                 <action android:name="com.google.android.gms.learning.trainer.START" />
                 <action android:name="com.google.android.gms.learning.training.background.START" />
-                <action android:name="com.google.android.gms.locationsharing.api.START" />
-                <action android:name="com.google.android.gms.locationsharingreporter.service.START" />
                 <action android:name="com.google.android.gms.lockbox.service.START" />
                 <action android:name="com.google.android.gms.matchstick.lighter.service.START" />
                 <action android:name="com.google.android.gms.mdm.services.DeviceManagerApiService.START" />
@@ -806,7 +737,6 @@
                 <action android:name="com.google.android.gms.smartdevice.postsetup.PostSetupService.START" />
                 <action android:name="com.google.android.gms.smartdevice.setup.accounts.AccountsService.START" />
                 <action android:name="com.google.android.gms.smartdevice.wifi.START_WIFI_HELPER_SERVICE" />
-                <action android:name="com.google.android.gms.social.location.activity.service.START" />
                 <action android:name="com.google.android.gms.statementservice.EXECUTE" />
                 <action android:name="com.google.android.gms.stats.ACTION_UPLOAD_DROPBOX_ENTRIES" />
                 <action android:name="com.google.android.gms.speech.service.START" />
@@ -826,23 +756,15 @@
                 <action android:name="com.google.android.gms.update.START_SERVICE" />
                 <action android:name="com.google.android.gms.update.START_SINGLE_USER_API_SERVICE" />
                 <action android:name="com.google.android.gms.update.START_TV_API_SERVICE" />
-                <action android:name="com.google.android.gms.userlocation.service.START" />
                 <action android:name="com.google.android.gms.vehicle.cabin.service.START" />
                 <action android:name="com.google.android.gms.vehicle.climate.service.START" />
                 <action android:name="com.google.android.gms.vehicle.info.service.START" />
                 <action android:name="com.google.android.gms.walletp2p.service.firstparty.BIND" />
                 <action android:name="com.google.android.gms.walletp2p.service.zeroparty.BIND" />
-                <action android:name="com.google.android.gms.wearable.BIND" />
-                <action android:name="com.google.android.gms.wearable.DATA_CHANGED" />
-                <action android:name="com.google.android.gms.wearable.NODE_CHANGED" />
                 <action android:name="com.google.android.mdd.service.START" />
                 <action android:name="com.google.android.mdh.service.START" />
                 <action android:name="com.google.android.mdh.service.listener.START" />
                 <action android:name="com.google.android.mobstore.service.START" />
-
-                <action
-                    android:name="com.google.android.gms.wearable.BIND_LISTENER"
-                    tools:ignore="WearableBindListener" />
             </intent-filter>
         </service>
     </application>

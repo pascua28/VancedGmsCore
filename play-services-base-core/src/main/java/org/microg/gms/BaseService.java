@@ -46,6 +46,18 @@ public abstract class BaseService extends LifecycleService {
         services.addAll(Arrays.asList(supportedServices));
         broker = new AbstractGmsServiceBroker(services) {
             @Override
+            public void getReportingService(IGmsCallbacks callback, int code, String str, Bundle params) throws RemoteException {
+            }
+
+            @Override
+            public void getLocationService(IGmsCallbacks callback, int code, String str, Bundle params) throws RemoteException {
+            }
+
+            @Override
+            public void getGoogleLocationManagerService(IGmsCallbacks callback, int code, String str, Bundle params) throws RemoteException {
+            }
+
+            @Override
             public void getDroidGuardService(IGmsCallbacks callback, int code, String str, Bundle params) throws RemoteException {
             }
 

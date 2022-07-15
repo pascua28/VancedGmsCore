@@ -17,9 +17,6 @@ import com.mgoogle.android.gms.R
 import org.microg.gms.checkin.CheckinPrefs
 import org.microg.gms.gcm.GcmDatabase
 import org.microg.gms.gcm.getGcmServiceInfo
-import org.microg.nlp.client.GeocodeClient
-import org.microg.nlp.client.LocationClient
-import org.microg.nlp.client.UnifiedLocationClient
 import org.microg.tools.ui.ResourceSettingsFragment
 
 class SettingsFragment : ResourceSettingsFragment() {
@@ -34,10 +31,6 @@ class SettingsFragment : ResourceSettingsFragment() {
         }
         findPreference<Preference>(PREF_GCM)!!.onPreferenceClickListener = Preference.OnPreferenceClickListener {
             findNavController().navigate(requireContext(), R.id.openGcmSettings)
-            true
-        }
-        findPreference<Preference>(PREF_UNIFIEDNLP)!!.onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            findNavController().navigate(requireContext(), R.id.openUnifiedNlpSettings)
             true
         }
         findPreference<Preference>(PREF_ABOUT)!!.onPreferenceClickListener = Preference.OnPreferenceClickListener {
@@ -85,19 +78,11 @@ class SettingsFragment : ResourceSettingsFragment() {
         }
 
         findPreference<Preference>(PREF_CHECKIN)!!.setSummary(if (CheckinPrefs.isEnabled(context)) R.string.service_status_enabled_short else R.string.service_status_disabled_short)
-
-        val backendCount = try {
-            LocationClient(context, lifecycle).getLocationBackends().size + GeocodeClient(context, lifecycle).getGeocodeBackends().size
-        } catch (e: Exception) {
-            0
-        }
-        findPreference<Preference>(PREF_UNIFIEDNLP)!!.summary = context.resources.getQuantityString(R.plurals.pref_unifiednlp_summary, backendCount, backendCount)
     }
 
     companion object {
         const val PREF_ABOUT = "pref_about"
         const val PREF_GCM = "pref_gcm"
-        const val PREF_UNIFIEDNLP = "pref_unifiednlp"
         const val PREF_CHECKIN = "pref_checkin"
         const val PREF_CAST_HIDE_LAUNCHER_ICON = "pref_hide_launcher_icon"
     }

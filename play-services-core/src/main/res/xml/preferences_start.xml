@@ -50,12 +50,6 @@
     </PreferenceCategory>
     <PreferenceCategory android:layout="@layout/preference_category_no_label">
         <Preference
-            android:icon="@drawable/ic_map_marker"
-            android:key="pref_unifiednlp"
-            android:title="@string/nlp_backends_title" />
-    </PreferenceCategory>
-    <PreferenceCategory android:layout="@layout/preference_category_no_label">
-        <Preference
             android:icon="@drawable/ic_info_outline"
             android:key="pref_about"
             android:title="@string/pref_about_title" />

@@ -10,9 +10,6 @@
         android:name="org.microg.gms.ui.SettingsFragment"
         android:label="@string/gms_settings_name">
         <action
-            android:id="@+id/openUnifiedNlpSettings"
-            app:destination="@id/nav_unlp" />
-        <action
             android:id="@+id/openCheckinSettings"
             app:destination="@id/checkinFragment" />
         <action
@@ -71,8 +68,6 @@
         android:id="@+id/googleMoreFragment"
         android:name="org.microg.gms.ui.GoogleMoreFragment"
         android:label="@string/gms_settings_name" />
-
-    <include app:graph="@navigation/nav_unlp" />
 
     <fragment
         android:id="@+id/aboutFragment"

@@ -80,27 +80,6 @@ public abstract class AbstractGmsServiceBroker extends IGmsServiceBroker.Stub {
 
     @Deprecated
     @Override
-    public void getReportingService(IGmsCallbacks callback, int versionCode, String packageName,
-                                    Bundle params) throws RemoteException {
-        callGetService(GmsService.LOCATION_REPORTING, callback, versionCode, packageName, params);
-    }
-
-    @Deprecated
-    @Override
-    public void getLocationService(IGmsCallbacks callback, int versionCode, String packageName,
-                                   Bundle params) throws RemoteException {
-        callGetService(GmsService.LOCATION, callback, versionCode, packageName, params);
-    }
-
-    @Deprecated
-    @Override
-    public void getGoogleLocationManagerService(IGmsCallbacks callback, int versionCode,
-                                                String packageName, Bundle params) throws RemoteException {
-        callGetService(GmsService.LOCATION_MANAGER, callback, versionCode, packageName, params);
-    }
-
-    @Deprecated
-    @Override
     public void getGamesService(IGmsCallbacks callback, int versionCode, String packageName,
                                 String accountName, String[] scopes, String gamePackageName,
                                 IBinder popupWindowToken, String desiredLocale, Bundle params)

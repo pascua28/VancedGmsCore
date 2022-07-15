@@ -26,7 +26,6 @@ dependencies {
     implementation project(':play-services-base-core-ui')
     implementation project(':play-services-conscrypt-provider-core')
     implementation project(':play-services-cronet-core')
-    implementation project(':play-services-location-core')
     implementation project(':play-services-oss-licenses-core')
     implementation project(':play-services-tapandpay-core')
     implementation project(':play-services-vision-core')
@@ -35,13 +34,6 @@ dependencies {
     implementation project(':play-services-core:microg-ui-tools') // deprecated
     implementation project(':play-services-api')
     implementation project(':play-services-cast-api')
-    implementation project(':play-services-wearable')
-    implementation "org.microg:wearable:$wearableVersion"
-
-    runtimeOnly "org.microg.nlp:geocode-v1:$nlpVersion"
-    runtimeOnly "org.microg.nlp:location-v2:$nlpVersion"
-    runtimeOnly "org.microg.nlp:location-v3:$nlpVersion"
-    implementation "org.microg.nlp:ui:$nlpVersion"
 
     // AndroidX UI
     implementation "androidx.multidex:multidex:$multidexVersion"
