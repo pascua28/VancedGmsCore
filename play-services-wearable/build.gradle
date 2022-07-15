@@ -7,10 +7,8 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion androidCompileSdk
-    buildToolsVersion "$androidBuildVersionTools"
 
     defaultConfig {
-        versionName version
         minSdkVersion androidMinSdk
         targetSdkVersion androidTargetSdk
     }
@@ -19,10 +17,10 @@ android {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
     }
-
-    lintOptions {
+    lint {
         disable 'InvalidPackage'
     }
+
 }
 
 dependencies {

@@ -15,7 +15,6 @@ dependencies {
 
 android {
     compileSdkVersion androidCompileSdk
-    buildToolsVersion "$androidBuildVersionTools"
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'

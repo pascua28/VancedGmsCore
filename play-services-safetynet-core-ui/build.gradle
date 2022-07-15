@@ -28,10 +28,8 @@ dependencies {
 
 android {
     compileSdkVersion androidCompileSdk
-    buildToolsVersion "$androidBuildVersionTools"
 
     defaultConfig {
-        versionName version
         minSdkVersion androidMinSdk
         targetSdkVersion androidTargetSdk
     }
@@ -40,9 +38,6 @@ android {
         main.java.srcDirs += 'src/main/kotlin'
     }
 
-    lintOptions {
-        disable 'MissingTranslation'
-    }
 
     compileOptions {
         sourceCompatibility = 1.8
@@ -51,6 +46,9 @@ android {
 
     kotlinOptions {
         jvmTarget = 1.8
+    }
+    lint {
+        disable 'MissingTranslation'
     }
 }
 

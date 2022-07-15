@@ -27,10 +27,8 @@ String getMyVersionName() {
 
 android {
     compileSdkVersion androidCompileSdk()
-    buildToolsVersion "$androidBuildVersionTools"
 
     defaultConfig {
-        versionName getMyVersionName()
         minSdkVersion androidMinSdk()
         targetSdkVersion androidTargetSdk()
     }
@@ -39,10 +37,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
-    lintOptions {
+    lint {
         disable 'InvalidPackage'
     }
+
 }
 
 dependencies {

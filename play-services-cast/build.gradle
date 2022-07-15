@@ -16,10 +16,8 @@ String getMyVersionName() {
 
 android {
     compileSdkVersion androidCompileSdk()
-    buildToolsVersion "$androidBuildVersionTools"
 
     defaultConfig {
-        versionName getMyVersionName()
         minSdkVersion androidMinSdk()
         targetSdkVersion androidTargetSdk()
     }

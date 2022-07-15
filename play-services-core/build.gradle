@@ -78,7 +78,6 @@ dependencies {
 
 android {
     compileSdkVersion androidCompileSdk()
-    buildToolsVersion "$androidBuildVersionTools"
 
     defaultConfig {
         versionName version
@@ -111,9 +110,6 @@ android {
         }
     }
 
-    lintOptions {
-        disable 'MissingTranslation', 'InvalidPackage', 'BatteryLife', 'ImpliedQuantity', 'MissingQuantity', 'InvalidWakeLockTag'
-    }
 
     buildTypes {
         release {
@@ -147,6 +143,9 @@ android {
 
     packagingOptions {
         exclude 'META-INF/ASL2.0'
+    }
+    lint {
+        disable 'MissingTranslation', 'InvalidPackage', 'BatteryLife', 'ImpliedQuantity', 'MissingQuantity', 'InvalidWakeLockTag'
     }
 }
 

@@ -43,11 +43,8 @@ def execResult(...args) {
 
 android {
     compileSdkVersion androidCompileSdk()
-    buildToolsVersion "$androidBuildVersionTools"
 
     defaultConfig {
-        versionName "temp"
-        versionCode 1
 
         minSdkVersion androidMinSdk()
         targetSdkVersion androidTargetSdk()
@@ -57,9 +54,6 @@ android {
         }
     }
 
-    lintOptions {
-        disable "MissingTranslation", "InvalidPackage", "BatteryLife", "ImpliedQuantity", "MissingQuantity"
-    }
 
     buildTypes {
         release {
@@ -71,6 +65,9 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+    lint {
+        disable 'MissingTranslation', 'InvalidPackage', 'BatteryLife', 'ImpliedQuantity', 'MissingQuantity'
     }
 }
 

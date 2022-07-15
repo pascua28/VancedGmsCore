@@ -25,11 +25,8 @@ dependencies {
 
 android {
     compileSdkVersion androidCompileSdk
-    buildToolsVersion "$androidBuildVersionTools"
 
     defaultConfig {
-        versionName "20.47.14"
-        versionCode 204714000
         minSdkVersion androidMinSdk
         targetSdkVersion androidTargetSdk
         buildConfigField("String", "VERSION_NAME", "\"${defaultConfig.versionName}\"")
@@ -40,9 +37,6 @@ android {
         main.java.srcDirs += 'src/main/kotlin'
     }
 
-    lintOptions {
-        disable 'MissingTranslation'
-    }
 
     compileOptions {
         sourceCompatibility = 1.8
@@ -51,6 +45,9 @@ android {
 
     kotlinOptions {
         jvmTarget = 1.8
+    }
+    lint {
+        disable 'MissingTranslation'
     }
 }
 

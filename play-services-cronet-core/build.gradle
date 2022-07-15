@@ -19,21 +19,19 @@ dependencies {
 
 android {
     compileSdkVersion androidCompileSdk
-    buildToolsVersion "$androidBuildVersionTools"
 
     defaultConfig {
-        versionName version
         minSdkVersion androidMinSdk
         targetSdkVersion androidTargetSdk
     }
 
-    lintOptions {
-        disable 'MissingTranslation'
-    }
 
     compileOptions {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
+    }
+    lint {
+        disable 'MissingTranslation'
     }
 }
 
