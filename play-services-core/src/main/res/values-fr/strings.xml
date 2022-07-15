@@ -70,30 +70,6 @@ Ceci peut prendre plusieurs minutes."</string>
     <string name="network_type_roaming">Roaming</string>
     <string name="network_type_other">Autres réseaux</string>
 
-    <!-- Self check -->
-
-    <string name="self_check_cat_fake_sig">Support de l’usurpation de signature</string>
-    <string name="self_check_cat_gms_packages">Paquets installés</string>
-    <string name="self_check_cat_system">Système</string>
-
-    <string name="self_check_name_fake_sig_perm">Le système supporte l’usurpation de signature : </string>
-    <string name="self_check_resolution_fake_sig_perm">Votre ROM ne supporte pas nativement l’usurpation de signature. Vous pouvez néanmoins utiliser Xposed ou d’autres mécanismes pour usurper les signatures. Merci de consulter la documentation sur les ROMs supportant l’usurpation de signature et comment utiliser microG sur les autres.</string>
-    <string name="self_check_name_perm_granted">Le système autorise l’usurpation de signature : </string>
-    <string name="self_check_resolution_perm_granted">C’est une indication forte que la ROM supporte l’usurpation de signature mais que celle-ci requiert une action supplémentaire pour être activée. Merci de consulter la documentation sur les éventuelles étapes nécessaires.</string>
-    <string name="self_check_name_system_spoofs">Le système usurpe la signature : </string>
-    <string name="self_check_resolution_system_spoofs">Merci de consulter la documentation sur les éventuelles étapes nécessaires.</string>
-
-    <string name="self_check_pkg_gms">Play Services (GmsCore)</string>
-    <string name="self_check_pkg_vending">Play Store (Phonesky)</string>
-    <string name="self_check_pkg_gsf">Services Framework (GSF)</string>
-    <string name="self_check_name_app_installed"><xliff:g example="F-Droid">%1$s</xliff:g> installé : </string>
-    <string name="self_check_resolution_app_installed">Installez l’application <xliff:g example="F-Droid">%1$s</xliff:g> ou tout autre compatible. Merci de consulter la documentation pour obtenir la liste des applications compatibles.</string>
-    <string name="self_check_name_correct_sig"><xliff:g example="F-Droid">%1$s</xliff:g> dispose de la bonne signature : </string>
-    <string name="self_check_resolution_correct_sig">Soit l’application <xliff:g example="F-Droid">%1$s</xliff:g> installée n’est pas compatible, soit l’usurpation de signature n’est pas activée pour celle-ci. Merci de consulter la documentation sur les applications et ROMs compatibles.</string>
-
-    <string name="self_check_name_battery_optimizations">Optimisations de la batterie ignorées : </string>
-    <string name="self_check_resolution_battery_optimizations">Appuyez ici pour désactiver les optimisations de la batterie. Des applications peuvent mal se comporter si vous ne le faites pas.</string>
-
     <!-- Settings strings -->
 
     <string name="prefcat_about">À propos</string>

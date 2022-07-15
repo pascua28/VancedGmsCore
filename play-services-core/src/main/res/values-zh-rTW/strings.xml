@@ -65,30 +65,6 @@
     <string name="network_type_roaming">漫遊</string>
     <string name="network_type_other">其他網路</string>
 
-    <!-- Self check -->
-
-    <string name="self_check_cat_fake_sig">支援簽名破解</string>
-    <string name="self_check_cat_gms_packages">已安裝的程式</string>
-    <string name="self_check_cat_system">系統</string>
-
-    <string name="self_check_name_fake_sig_perm">系統支援簽名破解： </string>
-    <string name="self_check_resolution_fake_sig_perm">您的原生韌體並不支援簽名破解，但您依舊能用Xposed或是改用其他系統來破解。 請參閱哪些韌體支援簽名破解以及如何在不支援的韌體使用microG的說明文件。</string>
-    <string name="self_check_name_perm_granted">系統允許簽名破解的權限： </string>
-    <string name="self_check_resolution_perm_granted">這是韌體支援簽名破解的強力指標，但是仍需要後續動作來啟動破解。 請參閱必須完成步驟的說明文件。</string>
-    <string name="self_check_name_system_spoofs">系統破解簽名： </string>
-    <string name="self_check_resolution_system_spoofs">請參閱必須完成步驟的說明文件。</string>
-
-    <string name="self_check_pkg_gms">Play服務(GmsCore)</string>
-    <string name="self_check_pkg_vending">Play商店(Phonesky)</string>
-    <string name="self_check_pkg_gsf">服務框架(GSF)</string>
-    <string name="self_check_name_app_installed"><xliff:g example="F-Droid">%1$s</xliff:g>已安裝：</string>
-    <string name="self_check_resolution_app_installed">安裝<xliff:g example="F-Droid">%1$s</xliff:g>或是相容的程式。 請參閱哪些程式相容的說明文件。</string>
-    <string name="self_check_name_correct_sig"><xliff:g example="F-Droid">%1$s</xliff:g> 有正確簽名： </string>
-    <string name="self_check_resolution_correct_sig">不是已安裝的 <xliff:g example="F-Droid">%1$s</xliff:g>不相容就是簽名破解沒啟動。 請參閱哪些程式和韌體相容的說明文件。</string>
-
-    <string name="self_check_name_battery_optimizations">停用電池優化：</string>
-    <string name="self_check_resolution_battery_optimizations">點擊這裡來停用電池優化。 不這麼做可能導致程式運作不正常。</string>
-
     <!-- Settings strings -->
 
     <string name="prefcat_about">關於</string>

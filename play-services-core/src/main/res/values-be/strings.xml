@@ -82,30 +82,6 @@
     <string name="network_type_roaming">Роўмінг</string>
     <string name="network_type_other">Іншыя сеткі</string>
 
-    <!-- Self check -->
-
-    <string name="self_check_cat_fake_sig">Падтрымка падмены подпісу</string>
-    <string name="self_check_cat_gms_packages">Устаноўленыя пакеты</string>
-    <string name="self_check_cat_system">Сістэма</string>
-
-    <string name="self_check_name_fake_sig_perm">Сістэма падтрымлівае падмену подпісу:</string>
-    <string name="self_check_resolution_fake_sig_perm">Ваша прашыўка не мае натыўнай падтрымкі падмены подпісу. Вы можаце выкарыстаць Xposed або іншыя метады, каб актываваць падмену подпісу. Калі ласка, азнаёмцеся з дакументацыяй, якая прашыўка падтрымлівае падмену подпісу і як выкарыстоўваць microG ў прашыўцы, якая не падтрымлівае.</string>
-    <string name="self_check_name_perm_granted">Сістэма дазваляе падмену подпісу:</string>
-    <string name="self_check_resolution_perm_granted">Ваша прашыўка падтрымлівае падмену подпісу, але патрабуе дадатковых дзеянняў для яе актывацыі. Калі ласка, азнаёмцеся з дакументацыяй, дзе апісана што трэба зрабіць.</string>
-    <string name="self_check_name_system_spoofs">Сістэма падмяняе подпісы:</string>
-    <string name="self_check_resolution_system_spoofs">Калі ласка, азнаёмцеся з дакументацыяй, дзе апісана што трэба зрабіць.</string>
-
-    <string name="self_check_pkg_gms">Play Services (GmsCore)</string>
-    <string name="self_check_pkg_vending">Play Store (Phonesky)</string>
-    <string name="self_check_pkg_gsf">Services Framework (GSF)</string>
-    <string name="self_check_name_app_installed"><xliff:g example="F-Droid">%1$s</xliff:g> усталяваны: </string>
-    <string name="self_check_resolution_app_installed">Усталюйце прыкладанне <xliff:g example="F-Droid">%1$s</xliff:g> або сумяшчальнае. Калі ласка, азнаёмцеся з дакументацыяй, дзе апісана якія прыкладанні сумяшчальныя.</string>
-    <string name="self_check_name_correct_sig"><xliff:g example="F-Droid">%1$s</xliff:g> мае правільны подпіс: </string>
-    <string name="self_check_resolution_correct_sig">Альбо усталяваны <xliff:g example="F-Droid">%1$s</xliff:g> не сумяшчальны, альбо падмена подпісу не актыўная для яго. Калі ласка, азнаёмцеся з дакументацыяй, дзе апісана якія прыкладанні або прашыўкі сумяшчальныя.</string>
-	
-    <string name="self_check_name_battery_optimizations">Аптымізацыя энергаспажывання адключаная:</string>
-    <string name="self_check_resolution_battery_optimizations">Націсніце тут, каб дазволіць прыкладанням працаваць у фоне. Без гэтага некаторыя праграмы могуць працаваць са збоямі.</string>
-
     <!-- Settings strings -->
 
     <string name="prefcat_about">Аб праграме</string>

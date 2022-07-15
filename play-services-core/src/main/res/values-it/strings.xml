@@ -74,30 +74,6 @@ Questa operazione può richiedere alcuni secondi."</string>
     <string name="network_type_roaming">Roaming</string>
     <string name="network_type_other">Altre reti</string>
 
-    <!-- Self check -->
-
-    <string name="self_check_cat_fake_sig">Supporto alla falsificazione della firma</string>
-    <string name="self_check_cat_gms_packages">Pacchetti installati</string>
-    <string name="self_check_cat_system">Sistema</string>
-
-    <string name="self_check_name_fake_sig_perm">Il sistema supporta la falsificazione della firma: </string>
-    <string name="self_check_resolution_fake_sig_perm">La tua ROM non dispone del supporto nativo per la falsificazione della firma. Puoi comunque utilizzare Xposed o altri sistemi per garantire la falsificazione della firma. Consulta la documentazione per conoscere quali ROM supportano questa funzionalità e come utilizzare microG sulle ROM che non la supportano.</string>
-    <string name="self_check_name_perm_granted">Il sistema concede l\'autorizzazione a falsificare la firma: </string>
-    <string name="self_check_resolution_perm_granted">Ciò indica che la ROM attuale supporta la falsificazione della firma, ma richiede azioni ulteriori per attivarla. Consulta la documentazione per conoscere quali operazioni siano necessarie.</string>
-    <string name="self_check_name_system_spoofs">Il sistema falsifica la firma: </string>
-    <string name="self_check_resolution_system_spoofs">Consulta la documentazione per conoscere quali operazioni siano necessarie.</string>
-
-    <string name="self_check_pkg_gms">Play Services (GmsCore)</string>
-    <string name="self_check_pkg_vending">Play Store (Phonesky)</string>
-    <string name="self_check_pkg_gsf">Services Framework (GSF)</string>
-    <string name="self_check_name_app_installed"><xliff:g example="F-Droid">%1$s</xliff:g> installato: </string>
-    <string name="self_check_resolution_app_installed">Installa l\'applicazione <xliff:g example="F-Droid">%1$s</xliff:g> oppure un\'altra compatibile. Consulta la documentazione per conoscere quali applicazioni siano compatibili.</string>
-    <string name="self_check_name_correct_sig"><xliff:g example="F-Droid">%1$s</xliff:g> ha la firma corretta: </string>
-    <string name="self_check_resolution_correct_sig">L\'applicazione <xliff:g example="F-Droid">%1$s</xliff:g> non è compatibile oppure la falsificazione della sua firma non è abilitata. Consulta la documentazione per conoscere quali applicazioni e ROM siano compatibili.</string>
-
-    <string name="self_check_name_battery_optimizations">Ottimizzazioni della batteria ignorate:</string>
-    <string name="self_check_resolution_battery_optimizations">Tocca qui per disabilitare le ottimizzazioni della batteria. Non selezionare questa opzione potrebbe comportare il malfunzionamento delle applicazioni.</string>
-
     <!-- Settings strings -->
 
     <string name="prefcat_about">Informazioni</string>

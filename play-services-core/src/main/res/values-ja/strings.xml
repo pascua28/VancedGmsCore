@@ -78,30 +78,6 @@
     <string name="network_type_roaming">ローミング</string>
     <string name="network_type_other">その他のネットワーク</string>
 
-    <!-- Self check -->
-
-    <string name="self_check_cat_fake_sig">署名スプーフィングサポート</string>
-    <string name="self_check_cat_gms_packages">インストールされたパッケージ</string>
-    <string name="self_check_cat_system">システム</string>
-
-    <string name="self_check_name_fake_sig_perm">システムは署名スプーフィングに対応しています: </string>
-    <string name="self_check_resolution_fake_sig_perm">実行しているROMはネイティブの署名スプーフィングに対応していません。 あなたはXposedやその他のシステムを使用して、署名スプーフィングを使用することが出来ます。 どのROMが署名スプーフィングをサポートしているか、またサポートしていないROMでmicroGを使用する方法に関するドキュメントを確認してください。</string>
-    <string name="self_check_name_perm_granted">システムは署名スプーフィング権限の許可しています: </string>
-    <string name="self_check_resolution_perm_granted">これは、ROMが署名スプーフィングをサポートしていることを示す強力な指標ですが、有効化するには追加の操作が必要です。 必要になる可能性のある手順についてのドキュメントを確認してください。</string>
-    <string name="self_check_name_system_spoofs">システムの署名スプーフィング: </string>
-    <string name="self_check_resolution_system_spoofs">必要になる可能性のある手順についてのドキュメントを確認してください。</string>
-
-    <string name="self_check_pkg_gms">Play開発者サービス(GmsCore)</string>
-    <string name="self_check_pkg_vending">Playストア(Phonesky)</string>
-    <string name="self_check_pkg_gsf">サービスフレームワーク(GSF)</string>
-    <string name="self_check_name_app_installed"><xliff:g example="F-Droid">%1$s</xliff:g>がインストールされています:</string>
-    <string name="self_check_resolution_app_installed"><xliff:g example="F-Droid">%1$s</xliff:g>、または互換性のあるものをインストールしてください。 互換性のあるアプリケーションについてのドキュメントを参照してください。</string>
-    <string name="self_check_name_correct_sig"><xliff:g example="F-Droid">%1$s</xliff:g> が持つ正しい署名: </string>
-    <string name="self_check_resolution_correct_sig">インストールされている <xliff:g example="F-Droid">%1$s</xliff:g> に互換性がないか、署名スプーフィングが有効ではありません。 互換性のあるアプリケーションとROMに関するドキュメントを確認してください。</string>
-
-    <string name="self_check_name_battery_optimizations">バッテリーの最適化を無効にしてください:</string>
-    <string name="self_check_resolution_battery_optimizations">バッテリーの最適化を無効にするには、ここをタップしてください。 これを行わない場合、アプリが誤動作する可能性があります。</string>
-
     <!-- Settings strings -->
 
     <string name="prefcat_about">情報</string>

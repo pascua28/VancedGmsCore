@@ -65,30 +65,6 @@
     <string name="network_type_roaming">Роминг</string>
     <string name="network_type_other">Остале мреже</string>
 
-    <!-- Self check -->
-
-    <string name="self_check_cat_fake_sig">Подршка за заваравање потписа</string>
-    <string name="self_check_cat_gms_packages">Инсталирани пакети</string>
-    <string name="self_check_cat_system">Систем</string>
-
-    <string name="self_check_name_fake_sig_perm">Систем има подршку заваравања потписа: </string>
-    <string name="self_check_resolution_fake_sig_perm">Ваш РОМ нема уграђену подршку за заваравање потписа. Ипак можете да користите Xposed или друге начине заваравања потписа. Погледајте документацију да видите који РОМови подржавају заваравање потписа и како да користите микроГ на РОМовима који не подржавају.</string>
-    <string name="self_check_name_perm_granted">Систем одобрава дозволу заваравања потписа: </string>
-    <string name="self_check_resolution_perm_granted">Ово је озбиљан индикатор да РОМ подржава заваравање потписа, али да захтева додатне радње за активацију. Погледајте документацију да сазнате о потребним додатним корацима.</string>
-    <string name="self_check_name_system_spoofs">Систем заварава потпис: </string>
-    <string name="self_check_resolution_system_spoofs">Погледајте документацију да сазнате о потребним додатним корацима.</string>
-
-    <string name="self_check_pkg_gms">Плеј сервиси (GmsCore)</string>
-    <string name="self_check_pkg_vending">Плеј продавница (Phonesky)</string>
-    <string name="self_check_pkg_gsf">Радни оквири сервиса (GSF)</string>
-    <string name="self_check_name_app_installed">%1$s инсталиран: </string>
-    <string name="self_check_resolution_app_installed">Инсталирајте апликацију %1$s или одговарајућу. Погледајте документацију да сазнате које су апликације одговарајуће.</string>
-    <string name="self_check_name_correct_sig">%1$s има тачан потпис: </string>
-    <string name="self_check_resolution_correct_sig">Или инсталирана %1$s није одговарајућа или заваравање потписа није укључено за њу. Погледајте документацију да сазнате које су апликације и РОМови одговарајући.</string>
-
-    <string name="self_check_name_battery_optimizations">Игнорисана оптимизација батерије:</string>
-    <string name="self_check_resolution_battery_optimizations">Тапните овде да бисте искључили оптимизацију батерије. Ако не урадите ово апликације ће можда лоше да се понашају</string>
-
     <!-- Settings strings -->
 
     <string name="prefcat_about">О програму</string>

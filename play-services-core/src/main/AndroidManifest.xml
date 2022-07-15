@@ -514,12 +514,6 @@
             android:taskAffinity="org.microg.gms.settings" />
 
         <activity
-            android:name="org.microg.gms.ui.SelfCheckFragment$AsActivity"
-            android:label="@string/self_check_title"
-            android:process=":ui"
-            android:taskAffinity="org.microg.gms.settings" />
-
-        <activity
             android:name="org.microg.gms.ui.AccountSettingsActivity"
             android:process=":ui"
             android:taskAffinity="org.microg.gms.settings">
