@@ -47,7 +47,6 @@ Ceci peut prendre plusieurs minutes."</string>
 
     <string name="service_name_checkin">Enregistrement du terminal auprès de Google</string>
     <string name="service_name_mcs">Cloud Messaging</string>
-    <string name="service_name_snet">Google SafetyNet</string>
 
     <string name="service_status_disabled">Désactivé</string>
     <string name="service_status_enabled">Activé</string>
@@ -147,9 +146,4 @@ Ceci peut prendre plusieurs minutes."</string>
     <string name="gcm_messages_counter">Messages : <xliff:g example="123">%1$d</xliff:g> (<xliff:g example="12345">%2$d</xliff:g> octets)</string>
     <string name="gcm_network_state_disconnected">Déconnecté</string>
     <string name="gcm_network_state_connected">Connecté depuis <xliff:g example="2 hours ago">%1$s</xliff:g></string>
-
-    <string name="snet_intro">Google SafetyNet est un système de certification du terminal, assurant que celui-ci est correctement sécurisé et compatible avec Android CTS. Certaines applications utilisent SafetyNet pour des raisons de sécurité ou comme prérequis anti-altérations.\n\nmicroG GmsCore contient une implantation libre de SafetyNet, mais les serveurs officiels requièrent que les requêtes SafetyNet soient signées par le système propriétaire DroidGuard.</string>
-
-    <string name="pref_safetynet_test_title">Tester la certification SafetyNet</string>
-    <string name="pref_droidguard_operation_mode">Mode d’opération</string>
 </resources>

@@ -17,7 +17,7 @@ import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
 import androidx.preference.PreferenceFragmentCompat
-import com.google.android.gms.R
+import com.mgoogle.android.gms.R
 import org.microg.gms.checkin.getCheckinServiceInfo
 import org.microg.gms.profile.ProfileManager
 import org.microg.gms.profile.ProfileManager.PROFILE_AUTO

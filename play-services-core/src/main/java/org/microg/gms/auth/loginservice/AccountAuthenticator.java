@@ -16,29 +16,6 @@
 
 package org.microg.gms.auth.loginservice;
 
-import android.accounts.AbstractAccountAuthenticator;
-import android.accounts.Account;
-import android.accounts.AccountAuthenticatorResponse;
-import android.accounts.AccountManager;
-import android.accounts.NetworkErrorException;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Base64;
-import android.util.Log;
-
-import com.google.android.gms.R;
-
-import org.microg.gms.auth.AskPermissionActivity;
-import org.microg.gms.auth.AuthConstants;
-import org.microg.gms.auth.AuthManager;
-import org.microg.gms.auth.AuthResponse;
-import org.microg.gms.auth.login.LoginActivity;
-import org.microg.gms.common.PackageUtils;
-
-import java.util.Arrays;
-import java.util.List;
-
 import static android.accounts.AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE;
 import static android.accounts.AccountManager.KEY_ACCOUNT_NAME;
 import static android.accounts.AccountManager.KEY_ACCOUNT_TYPE;
@@ -48,6 +25,25 @@ import static android.accounts.AccountManager.KEY_BOOLEAN_RESULT;
 import static android.accounts.AccountManager.KEY_CALLER_PID;
 import static android.accounts.AccountManager.KEY_CALLER_UID;
 import static android.accounts.AccountManager.KEY_INTENT;
+
+import android.accounts.AbstractAccountAuthenticator;
+import android.accounts.Account;
+import android.accounts.AccountAuthenticatorResponse;
+import android.accounts.AccountManager;
+import android.accounts.NetworkErrorException;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+
+import org.microg.gms.auth.AuthConstants;
+import org.microg.gms.auth.AuthManager;
+import org.microg.gms.auth.AuthResponse;
+import org.microg.gms.auth.login.LoginActivity;
+import org.microg.gms.common.PackageUtils;
+
+import java.util.Arrays;
+import java.util.List;
 
 class AccountAuthenticator extends AbstractAccountAuthenticator {
     private static final String TAG = "GmsAuthenticator";
@@ -102,28 +98,12 @@ class AccountAuthenticator extends AbstractAccountAuthenticator {
                 result.putString(KEY_ACCOUNT_NAME, account.name);
                 result.putString(KEY_AUTHTOKEN, res.auth);
                 return result;
-            } else {
-                Bundle result = new Bundle();
-                Intent i = new Intent(context, AskPermissionActivity.class);
-                i.putExtras(options);
-                i.putExtra(KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
-                i.putExtra(KEY_ANDROID_PACKAGE_NAME, app);
-                i.putExtra(KEY_ACCOUNT_TYPE, account.type);
-                i.putExtra(KEY_ACCOUNT_NAME, account.name);
-                i.putExtra(KEY_AUTHTOKEN, authTokenType);
-                try {
-                    if (res.consentDataBase64 != null)
-                        i.putExtra(AskPermissionActivity.EXTRA_CONSENT_DATA, Base64.decode(res.consentDataBase64, Base64.URL_SAFE));
-                } catch (Exception e) {
-                    Log.w(TAG, "Can't decode consent data: ", e);
-                }
-                result.putParcelable(KEY_INTENT, i);
-                return result;
             }
         } catch (Exception e) {
             Log.w(TAG, e);
             return null;
         }
+        return null;
     }
 
     @Override
@@ -147,8 +127,10 @@ class AccountAuthenticator extends AbstractAccountAuthenticator {
         if (services != null) {
             List<String> servicesList = Arrays.asList(services.split(","));
             for (String feature : features) {
-                if (feature.startsWith("service_") && !servicesList.contains(feature.substring(8)))
+                if (feature.startsWith("service_") && !servicesList.contains(feature.substring(8))) {
                     res = false;
+                    break;
+                }
             }
         } else {
             res = false;

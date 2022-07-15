@@ -6,16 +6,15 @@ import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.util.Log
 import org.microg.gms.gcm.TriggerReceiver.FORCE_TRY_RECONNECT
-import org.microg.gms.settings.SettingsContract
-import org.microg.gms.settings.SettingsContract.Gcm
-import org.microg.gms.settings.SettingsContract.setSettings
+import org.microg.mgms.settings.SettingsContract
+import org.microg.mgms.settings.SettingsContract.Gcm
+import org.microg.mgms.settings.SettingsContract.setSettings
 import kotlin.math.max
 import kotlin.math.min
 
 data class GcmPrefs(
     val isGcmLogEnabled: Boolean,
     val lastPersistedId: String?,
-    val confirmNewApps: Boolean,
     val gcmEnabled: Boolean,
     val networkMobile: Int,
     val networkWifi: Int,
@@ -32,7 +31,6 @@ data class GcmPrefs(
         get() = if (lastPersistedId.isNullOrEmpty()) emptyList() else lastPersistedId.split("\\|")
 
     companion object {
-        const val PREF_CONFIRM_NEW_APPS = Gcm.CONFIRM_NEW_APPS
         const val PREF_NETWORK_MOBILE = Gcm.NETWORK_MOBILE
         const val PREF_NETWORK_WIFI = Gcm.NETWORK_WIFI
         const val PREF_NETWORK_ROAMING = Gcm.NETWORK_ROAMING
@@ -40,6 +38,7 @@ data class GcmPrefs(
 
         private const val MIN_INTERVAL = 5 * 60 * 1000 // 5 minutes
         private const val MAX_INTERVAL = 30 * 60 * 1000 // 30 minutes
+	public const val INTERVAL = 1 * 60 * 1000 // 1 minute
 
         @JvmStatic
         fun get(context: Context): GcmPrefs {
@@ -47,15 +46,14 @@ data class GcmPrefs(
                 GcmPrefs(
                     isGcmLogEnabled = c.getInt(0) != 0,
                     lastPersistedId = c.getString(1),
-                    confirmNewApps = c.getInt(2) != 0,
-                    gcmEnabled = c.getInt(3) != 0,
-                    networkMobile = c.getInt(4),
-                    networkWifi = c.getInt(5),
-                    networkRoaming = c.getInt(6),
-                    networkOther = c.getInt(7),
-                    learntMobileInterval = c.getInt(8),
-                    learntWifiInterval = c.getInt(9),
-                    learntOtherInterval = c.getInt(10),
+                    gcmEnabled = c.getInt(2) != 0,
+                    networkMobile = c.getInt(3),
+                    networkWifi = c.getInt(4),
+                    networkRoaming = c.getInt(5),
+                    networkOther = c.getInt(6),
+                    learntMobileInterval = c.getInt(7),
+                    learntWifiInterval = c.getInt(8),
+                    learntOtherInterval = c.getInt(9),
                 )
             }
         }
@@ -64,7 +62,6 @@ data class GcmPrefs(
             val gcmPrefs = get(context)
             setSettings(context, Gcm.getContentUri(context)) {
                 put(Gcm.ENABLE_GCM, config.enabled)
-                put(Gcm.CONFIRM_NEW_APPS, config.confirmNewApps)
                 put(Gcm.NETWORK_MOBILE, config.mobile)
                 put(Gcm.NETWORK_WIFI, config.wifi)
                 put(Gcm.NETWORK_ROAMING, config.roaming)

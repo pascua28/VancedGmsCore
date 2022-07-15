@@ -33,7 +33,7 @@
             android:title="@string/pref_add_account_title">
             <intent
                 android:targetClass="org.microg.gms.auth.login.LoginActivity"
-                android:targetPackage="com.google.android.gms" />
+                android:targetPackage="com.mgoogle.android.gms" />
         </Preference>
         <Preference
             android:icon="@drawable/ic_device_login"
@@ -44,17 +44,13 @@
             android:key="pref_gcm"
             android:title="@string/service_name_mcs" />
         <Preference
-            android:icon="@drawable/ic_certificate"
-            android:key="pref_snet"
-            android:title="@string/service_name_snet" />
-        <Preference
             android:icon="@drawable/dots_horizontal"
             android:key="pref_google_more"
             android:title="@string/pref_more_settings"
             app:isPreferenceVisible="false">
             <intent
                 android:targetClass="org.microg.gms.ui.GoogleMoreFragment$AsActivity"
-                android:targetPackage="com.google.android.gms" />
+                android:targetPackage="com.mgoogle.android.gms" />
         </Preference>
     </PreferenceCategory>
     <PreferenceCategory android:layout="@layout/preference_category_no_label">

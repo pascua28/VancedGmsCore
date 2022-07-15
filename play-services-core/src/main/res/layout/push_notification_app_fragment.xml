@@ -17,10 +17,6 @@
         <variable
             name="appIcon"
             type="android.graphics.drawable.Drawable" />
-
-        <variable
-            name="callbacks"
-            type="org.microg.gms.ui.PushNotificationAppFragmentCallbacks" />
     </data>
 
     <LinearLayout
@@ -44,7 +40,6 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:gravity="center_horizontal"
-                android:onClick='@{() -> callbacks.onAppClicked()}'
                 android:orientation="vertical">
 
                 <ImageView

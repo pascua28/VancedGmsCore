@@ -16,8 +16,8 @@ import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import com.google.android.gms.R
-import com.google.android.gms.databinding.PushNotificationAppFragmentBinding
+import com.mgoogle.android.gms.R
+import com.mgoogle.android.gms.databinding.PushNotificationAppFragmentBinding
 
 
 class PushNotificationAppFragment : Fragment(R.layout.push_notification_fragment) {
@@ -27,19 +27,6 @@ class PushNotificationAppFragment : Fragment(R.layout.push_notification_fragment
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = PushNotificationAppFragmentBinding.inflate(inflater, container, false)
-        binding.callbacks = object : PushNotificationAppFragmentCallbacks {
-            override fun onAppClicked() {
-                val intent = Intent()
-                intent.action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
-                val uri: Uri = Uri.fromParts("package", packageName, null)
-                intent.data = uri
-                try {
-                    requireContext().startActivity(intent)
-                } catch (e: Exception) {
-                    Log.w(TAG, "Failed to launch app", e)
-                }
-            }
-        }
         childFragmentManager.findFragmentById(R.id.sub_preferences)?.arguments = arguments
         return binding.root
     }

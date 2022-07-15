@@ -4,7 +4,6 @@
  */
 package org.microg.gms.gcm
 
-import android.app.Activity
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
@@ -20,9 +19,7 @@ import org.microg.gms.checkin.CheckinService
 import org.microg.gms.checkin.LastCheckinInfo
 import org.microg.gms.common.ForegroundServiceContext
 import org.microg.gms.common.PackageUtils
-import org.microg.gms.common.Utils
 import org.microg.gms.gcm.GcmConstants.*
-import org.microg.gms.ui.AskPushPermission
 import java.util.concurrent.atomic.AtomicBoolean
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
@@ -55,24 +52,7 @@ private suspend fun ensureCheckinIsUpToDate(context: Context) {
 private suspend fun ensureAppRegistrationAllowed(context: Context, database: GcmDatabase, packageName: String) {
     if (!GcmPrefs.get(context).isEnabled) throw RuntimeException("GCM disabled")
     val app = database.getApp(packageName)
-    if (app == null && GcmPrefs.get(context).confirmNewApps) {
-        val accepted: Boolean = suspendCoroutine { continuation ->
-            val i = Intent(context, AskPushPermission::class.java)
-            i.putExtra(AskPushPermission.EXTRA_REQUESTED_PACKAGE, packageName)
-            i.putExtra(AskPushPermission.EXTRA_RESULT_RECEIVER, object : ResultReceiver(null) {
-                override fun onReceiveResult(resultCode: Int, resultData: Bundle?) {
-                    continuation.resume(resultCode == Activity.RESULT_OK)
-                }
-            })
-            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            i.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS)
-            i.addFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT)
-            context.startActivity(i)
-        }
-        if (!accepted) {
-            throw RuntimeException("Push permission not granted to $packageName")
-        }
-    } else if (app?.allowRegister == false) {
+    if (app?.allowRegister == false) {
         throw RuntimeException("Push permission not granted to $packageName")
     }
 }
@@ -145,7 +125,7 @@ class PushRegisterService : LifecycleService() {
     private suspend fun register(intent: Intent) {
         val packageName = intent.appPackageName ?: throw RuntimeException("No package provided")
         ensureAppRegistrationAllowed(this, database, packageName)
-        Log.d(TAG, "register[req]: " + intent.toString() + " extras=" + intent!!.extras)
+        Log.d(TAG, "register[req]: " + intent.toString() + " extras=" + intent.extras)
         val bundle = completeRegisterRequest(this, database,
                 RegisterRequest()
                         .build(this)
@@ -237,7 +217,7 @@ internal class PushRegisterHandler(private val context: Context, private val dat
         }
     }
 
-    private fun sendReply(what: Int, id: Int, replyTo: Messenger, data: Bundle, oneWay: Boolean) {
+    private fun sendReply(what: Int, id: Int, replyTo: Messenger, data: Bundle) {
         if (what == 0) {
             val outIntent = Intent(ACTION_C2DM_REGISTRATION)
             outIntent.putExtras(data)
@@ -249,51 +229,51 @@ internal class PushRegisterHandler(private val context: Context, private val dat
         sendReplyViaMessage(what, id, replyTo, messageData)
     }
 
-    private fun replyError(what: Int, id: Int, replyTo: Messenger, errorMessage: String, oneWay: Boolean) {
+    private fun replyError(what: Int, id: Int, replyTo: Messenger, errorMessage: String) {
         val bundle = Bundle()
         bundle.putString(EXTRA_ERROR, errorMessage)
-        sendReply(what, id, replyTo, bundle, oneWay)
+        sendReply(what, id, replyTo, bundle)
     }
 
     private fun replyNotAvailable(what: Int, id: Int, replyTo: Messenger) {
-        replyError(what, id, replyTo, ERROR_SERVICE_NOT_AVAILABLE, false)
+        replyError(what, id, replyTo, ERROR_SERVICE_NOT_AVAILABLE)
     }
 
     private val selfAuthIntent: PendingIntent
-        private get() {
+        get() {
             val intent = Intent()
             intent.setPackage("com.google.example.invalidpackage")
             return PendingIntent.getBroadcast(context, 0, intent, 0)
         }
 
     override fun handleMessage(msg: Message) {
-        var msg = msg
-        val obj = msg.obj
-        if (msg.what == 0) {
+        var getmsg = msg
+        val obj = getmsg.obj
+        if (getmsg.what == 0) {
             if (obj is Intent) {
                 val nuMsg = Message.obtain()
-                nuMsg.what = msg.what
+                nuMsg.what = getmsg.what
                 nuMsg.arg1 = 0
                 nuMsg.replyTo = null
                 val packageName = obj.appPackageName
                 val data = Bundle()
                 data.putBoolean("oneWay", false)
                 data.putString("pkg", packageName)
-                data.putBundle("data", msg.data)
+                data.putBundle("data", getmsg.data)
                 nuMsg.data = data
-                msg = nuMsg
+                getmsg = nuMsg
             } else {
                 return
             }
         }
-        val what = msg.what
-        val id = msg.arg1
-        val replyTo = msg.replyTo
+        val what = getmsg.what
+        val id = getmsg.arg1
+        val replyTo = getmsg.replyTo
         if (replyTo == null) {
             Log.w(TAG, "replyTo is null")
             return
         }
-        val data = msg.data
+        val data = getmsg.data
         val packageName = data.getString("pkg") ?: return
         val subdata = data.getBundle("data")
         try {
@@ -320,7 +300,7 @@ internal class PushRegisterHandler(private val context: Context, private val dat
                                         .app(packageName)
                                         .delete(delete)
                                         .extraParams(subdata))
-                        sendReply(what, id, replyTo, bundle, oneWay)
+                        sendReply(what, id, replyTo, bundle)
                     } catch (e: Exception) {
                         Log.w(TAG, e)
                         replyNotAvailable(what, id, replyTo)

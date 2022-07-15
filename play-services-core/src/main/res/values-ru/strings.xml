@@ -57,7 +57,6 @@
 
     <string name="service_name_checkin">Регистрация устройства в Google</string>
     <string name="service_name_mcs">Облачный обмен сообщениями</string>
-    <string name="service_name_snet">Google SafetyNet</string>
 
     <string name="service_status_disabled">Выключено</string>
     <string name="service_status_enabled">Включено</string>
@@ -179,12 +178,5 @@
     <string name="prefcat_push_apps_registered_title">Зарегистрированные приложения</string>
     <string name="prefcat_push_apps_unregistered_title">Незарегистрированные приложения</string>
     <string name="prefcat_push_networks_title">Сети для приёма push-уведомлений</string>
-
-    <string name="snet_intro">Google SafetyNet это система сертификации устройства, гарантирующая, что устройство корректно защищено и совместимо с Android CTS. Некоторые приложения используют SafetyNet из соображений безопасности или в качестве предварительной системы защиты от взлома.\n\nmicroG GmsCore содержит свободную реализацию SafetyNet, но официальный сервер требует, чтобы запросы были подписаны с помощью проприетарной системы DroidGuard.</string>
-    <string name="snet_enable_switch">Разрешить проверку статуса устройства</string>
-
-    <string name="pref_safetynet_test_title">Тест верификации SafetyNet</string>
-    <string name="pref_droidguard_operation_mode">Режим работы</string>
-
 </resources>
 

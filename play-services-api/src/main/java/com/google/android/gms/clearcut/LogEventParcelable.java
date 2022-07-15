@@ -19,8 +19,8 @@ package com.google.android.gms.clearcut;
 import android.util.Base64;
 
 import com.google.android.gms.clearcut.internal.LogVerifierResultParcelable;
-import com.google.android.gms.phenotype.ExperimentToken;
-import com.google.android.gms.phenotype.GenericDimension;
+import com.mgoogle.android.gms.phenotype.ExperimentToken;
+import com.mgoogle.android.gms.phenotype.GenericDimension;
 import com.google.android.gms.clearcut.internal.PlayLoggerContext;
 
 import org.microg.safeparcel.AutoSafeParcelable;

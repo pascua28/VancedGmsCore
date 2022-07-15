@@ -87,8 +87,7 @@ public class PushRegisterManager {
         if (!request.delete) {
             if (!prefs.isEnabled() ||
                     (app != null && !app.allowRegister) ||
-                    LastCheckinInfo.read(context).getLastCheckin() <= 0 ||
-                    (app == null && prefs.getConfirmNewApps())) {
+                    LastCheckinInfo.read(context).getLastCheckin() <= 0) {
                 Bundle bundle = new Bundle();
                 bundle.putString(EXTRA_ERROR, ERROR_SERVICE_NOT_AVAILABLE);
                 callback.onResult(bundle);

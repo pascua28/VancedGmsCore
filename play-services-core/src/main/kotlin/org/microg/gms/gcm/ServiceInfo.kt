@@ -24,9 +24,9 @@ private const val TAG = "GmsGcmStatusInfo"
 
 data class ServiceInfo(val configuration: ServiceConfiguration, val connected: Boolean, val startTimestamp: Long, val learntMobileInterval: Int, val learntWifiInterval: Int, val learntOtherInterval: Int) : Serializable
 
-data class ServiceConfiguration(val enabled: Boolean, val confirmNewApps: Boolean, val mobile: Int, val wifi: Int, val roaming: Int, val other: Int) : Serializable
+data class ServiceConfiguration(val enabled: Boolean, val mobile: Int, val wifi: Int, val roaming: Int, val other: Int) : Serializable
 
-private fun GcmPrefs.toConfiguration(): ServiceConfiguration = ServiceConfiguration(isEnabled, confirmNewApps, networkMobile, networkWifi, networkRoaming, networkOther)
+private fun GcmPrefs.toConfiguration(): ServiceConfiguration = ServiceConfiguration(isEnabled, networkMobile, networkWifi, networkRoaming, networkOther)
 
 class ServiceInfoReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
@@ -35,12 +35,12 @@ class ServiceInfoReceiver : BroadcastReceiver() {
                 setPackage(context.packageName)
                 val prefs = GcmPrefs.get(context)
                 val info = ServiceInfo(
-                    configuration = prefs.toConfiguration(),
-                    connected = McsService.isConnected(context),
-                    startTimestamp = McsService.getStartTimestamp(),
-                    learntMobileInterval = prefs.learntMobileInterval,
-                    learntWifiInterval = prefs.learntWifiInterval,
-                    learntOtherInterval = prefs.learntOtherInterval
+                        configuration = prefs.toConfiguration(),
+                        connected = McsService.isConnected(context),
+                        startTimestamp = McsService.getStartTimestamp(),
+                        learntMobileInterval = prefs.learntMobileInterval,
+                        learntWifiInterval = prefs.learntWifiInterval,
+                        learntOtherInterval = prefs.learntOtherInterval
                 )
                 putExtra(EXTRA_SERVICE_INFO, info)
             }, null)
@@ -75,7 +75,7 @@ private suspend fun sendToServiceInfoReceiver(intent: Intent, context: Context):
 }
 
 suspend fun getGcmServiceInfo(context: Context): ServiceInfo = sendToServiceInfoReceiver(
-    // this is still using a broadcast, because it calls into McsService in the persistent process
+        // this is still using a broadcast, because it calls into McsService in the persistent process
         Intent(context, ServiceInfoReceiver::class.java).apply {
             action = ACTION_SERVICE_INFO_REQUEST
         }, context)

@@ -17,6 +17,7 @@
 package org.microg.gms;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.util.Log;
@@ -44,6 +45,10 @@ public abstract class BaseService extends LifecycleService {
         services = EnumSet.of(supportedService);
         services.addAll(Arrays.asList(supportedServices));
         broker = new AbstractGmsServiceBroker(services) {
+            @Override
+            public void getDroidGuardService(IGmsCallbacks callback, int code, String str, Bundle params) throws RemoteException {
+            }
+
             @Override
             public void handleServiceRequest(IGmsCallbacks callback, GetServiceRequest request, GmsService service) throws RemoteException {
                 try {

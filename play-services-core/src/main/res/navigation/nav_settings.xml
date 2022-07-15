@@ -22,9 +22,6 @@
             android:id="@+id/openGcmSettings"
             app:destination="@id/gcmFragment" />
         <action
-            android:id="@+id/openSafetyNetSettings"
-            app:destination="@id/safetyNetFragment" />
-        <action
             android:id="@+id/openMoreGoogleSettings"
             app:destination="@id/googleMoreFragment" />
         <action
@@ -80,20 +77,6 @@
         android:id="@+id/gcmAdvancedFragment"
         android:name="org.microg.gms.ui.PushNotificationAdvancedFragment"
         android:label="@string/service_name_mcs" />
-    <fragment
-        android:id="@+id/safetyNetFragment"
-        android:name="org.microg.gms.ui.SafetyNetFragment"
-        android:label="@string/service_name_snet"
-        tools:layout="@layout/safety_net_fragment">
-        <action
-            android:id="@+id/openSafetyNetAdvancedSettings"
-            app:destination="@id/safetyNetAdvancedFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/safetyNetAdvancedFragment"
-        android:name="org.microg.gms.ui.SafetyNetAdvancedFragment"
-        android:label="@string/service_name_snet" />
-
     <fragment
         android:id="@+id/googleMoreFragment"
         android:name="org.microg.gms.ui.GoogleMoreFragment"

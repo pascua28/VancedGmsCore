@@ -42,7 +42,7 @@ import android.widget.TextView;
 import androidx.annotation.StringRes;
 import androidx.webkit.WebViewClientCompat;
 
-import com.google.android.gms.R;
+import com.mgoogle.android.gms.R;
 
 import org.json.JSONArray;
 import org.microg.gms.auth.AuthConstants;
@@ -280,7 +280,6 @@ public class LoginActivity extends AssistantActivity {
                 .token(oAuthToken).isAccessToken()
                 .addAccount()
                 .getAccountId()
-                .droidguardResults(null /*TODO*/)
                 .getResponseAsync(new HttpFormClient.Callback<AuthResponse>() {
                     @Override
                     public void onResponse(AuthResponse response) {
@@ -440,11 +439,6 @@ public class LoginActivity extends AssistantActivity {
         @JavascriptInterface
         public final int getBuildVersionSdk() {
             return SDK_INT;
-        }
-
-        @JavascriptInterface
-        public final void getDroidGuardResult(String s) {
-            Log.d(TAG, "JSBridge: getDroidGuardResult");
         }
 
         @JavascriptInterface

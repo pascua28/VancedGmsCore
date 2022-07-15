@@ -8,7 +8,7 @@ package org.microg.gms.ui
 import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.Drawable
-import com.google.android.gms.R
+import com.mgoogle.android.gms.R
 
 interface NearbyPreferencesIntegration {
     companion object {

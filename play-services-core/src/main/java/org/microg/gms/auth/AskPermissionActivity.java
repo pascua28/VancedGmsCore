@@ -37,7 +37,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.google.android.gms.R;
+import com.mgoogle.android.gms.R;
 
 import org.microg.gms.common.PackageUtils;
 import org.microg.gms.people.PeopleManager;

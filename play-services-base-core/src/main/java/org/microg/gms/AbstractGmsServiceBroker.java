@@ -135,13 +135,6 @@ public abstract class AbstractGmsServiceBroker extends IGmsServiceBroker.Stub {
 
     @Deprecated
     @Override
-    public void getDroidGuardService(IGmsCallbacks callback, int versionCode, String packageName,
-                                     Bundle params) throws RemoteException {
-        callGetService(GmsService.DROIDGUARD, callback, versionCode, packageName, params);
-    }
-
-    @Deprecated
-    @Override
     public void getLockboxService(IGmsCallbacks callback, int versionCode, String packageName,
                                   Bundle params) throws RemoteException {
         callGetService(GmsService.LOCKBOX, callback, versionCode, packageName, params);

@@ -32,7 +32,7 @@ import android.util.Log;
 
 import androidx.legacy.content.WakefulBroadcastReceiver;
 
-import com.google.android.gms.R;
+import com.mgoogle.android.gms.R;
 import com.google.android.gms.checkin.internal.ICheckinService;
 
 import org.microg.gms.auth.AuthConstants;

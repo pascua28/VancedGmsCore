@@ -10,11 +10,10 @@ import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.TwoStatePreference
-import com.google.android.gms.R
+import com.mgoogle.android.gms.R
 import org.microg.gms.gcm.*
 
 class PushNotificationAdvancedFragment : PreferenceFragmentCompat() {
-    private lateinit var confirmNewApps: TwoStatePreference
     private lateinit var networkMobile: ListPreference
     private lateinit var networkWifi: ListPreference
     private lateinit var networkRoaming: ListPreference
@@ -25,27 +24,16 @@ class PushNotificationAdvancedFragment : PreferenceFragmentCompat() {
     }
 
     override fun onBindPreferences() {
-        confirmNewApps = preferenceScreen.findPreference(GcmPrefs.PREF_CONFIRM_NEW_APPS) ?: confirmNewApps
         networkMobile = preferenceScreen.findPreference(GcmPrefs.PREF_NETWORK_MOBILE) ?: networkMobile
         networkWifi = preferenceScreen.findPreference(GcmPrefs.PREF_NETWORK_WIFI) ?: networkWifi
         networkRoaming = preferenceScreen.findPreference(GcmPrefs.PREF_NETWORK_ROAMING) ?: networkRoaming
         networkOther = preferenceScreen.findPreference(GcmPrefs.PREF_NETWORK_OTHER) ?: networkOther
 
-        confirmNewApps.onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, newValue ->
-            val appContext = requireContext().applicationContext
-            lifecycleScope.launchWhenResumed {
-                if (newValue is Boolean) {
-                    setGcmServiceConfiguration(appContext, getGcmServiceInfo(appContext).configuration.copy(confirmNewApps = newValue))
-                }
-                updateContent()
-            }
-            true
-        }
         networkMobile.onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, newValue ->
             val appContext = requireContext().applicationContext
             lifecycleScope.launchWhenResumed {
                 (newValue as? String)?.toIntOrNull()?.let {
-                    setGcmServiceConfiguration(appContext, getGcmServiceInfo(appContext).configuration.copy(mobile = it))
+                    setGcmServiceConfiguration(requireContext(), getGcmServiceInfo(appContext).configuration.copy(mobile = it))
                 }
                 updateContent()
             }
@@ -55,7 +43,7 @@ class PushNotificationAdvancedFragment : PreferenceFragmentCompat() {
             val appContext = requireContext().applicationContext
             lifecycleScope.launchWhenResumed {
                 (newValue as? String)?.toIntOrNull()?.let {
-                    setGcmServiceConfiguration(appContext, getGcmServiceInfo(appContext).configuration.copy(wifi = it))
+                    setGcmServiceConfiguration(appContext, getGcmServiceInfo(requireContext()).configuration.copy(wifi = it))
                 }
                 updateContent()
             }
@@ -65,7 +53,7 @@ class PushNotificationAdvancedFragment : PreferenceFragmentCompat() {
             val appContext = requireContext().applicationContext
             lifecycleScope.launchWhenResumed {
                 (newValue as? String)?.toIntOrNull()?.let {
-                    setGcmServiceConfiguration(appContext, getGcmServiceInfo(appContext).configuration.copy(roaming = it))
+                    setGcmServiceConfiguration(appContext, getGcmServiceInfo(requireContext()).configuration.copy(roaming = it))
                 }
                 updateContent()
             }
@@ -75,7 +63,7 @@ class PushNotificationAdvancedFragment : PreferenceFragmentCompat() {
             val appContext = requireContext().applicationContext
             lifecycleScope.launchWhenResumed {
                 (newValue as? String)?.toIntOrNull()?.let {
-                    setGcmServiceConfiguration(appContext, getGcmServiceInfo(appContext).configuration.copy(other = it))
+                    setGcmServiceConfiguration(appContext, getGcmServiceInfo(requireContext()).configuration.copy(other = it))
                 }
                 updateContent()
             }
@@ -92,7 +80,6 @@ class PushNotificationAdvancedFragment : PreferenceFragmentCompat() {
         val appContext = requireContext().applicationContext
         lifecycleScope.launchWhenResumed {
             val serviceInfo = getGcmServiceInfo(appContext)
-            confirmNewApps.isChecked = serviceInfo.configuration.confirmNewApps
             networkMobile.value = serviceInfo.configuration.mobile.toString()
             networkMobile.summary = getSummaryString(serviceInfo.configuration.mobile, serviceInfo.learntMobileInterval)
             networkWifi.value = serviceInfo.configuration.wifi.toString()
