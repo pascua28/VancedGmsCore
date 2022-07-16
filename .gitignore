@@ -1,4 +1,5 @@
 *.iml
+*.hprof
 gen/
 bin/
 build/
@@ -11,3 +12,4 @@ local.properties
 .settings
 .classpath
 .project
+release/
