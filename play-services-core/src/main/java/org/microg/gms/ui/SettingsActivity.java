@@ -23,9 +23,6 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Intent intent = getIntent();
-        NearbyPreferencesIntegration.Companion.preProcessSettingsIntent(intent);
-
         setContentView(R.layout.settings_root_activity);
 
         appBarConfiguration = new AppBarConfiguration.Builder(getNavController().getGraph()).build();

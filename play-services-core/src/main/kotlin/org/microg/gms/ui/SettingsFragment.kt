@@ -40,10 +40,6 @@ class SettingsFragment : ResourceSettingsFragment() {
             findNavController().navigate(requireContext(), R.id.openUnifiedNlpSettings)
             true
         }
-        findPreference<Preference>(PREF_EXPOSURE)?.onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            findNavController().navigate(requireContext(), NearbyPreferencesIntegration.exposureNotificationNavigationId)
-            true
-        }
         findPreference<Preference>(PREF_ABOUT)!!.onPreferenceClickListener = Preference.OnPreferenceClickListener {
             findNavController().navigate(requireContext(), R.id.openAbout)
             true
@@ -96,10 +92,6 @@ class SettingsFragment : ResourceSettingsFragment() {
             0
         }
         findPreference<Preference>(PREF_UNIFIEDNLP)!!.summary = context.resources.getQuantityString(R.plurals.pref_unifiednlp_summary, backendCount, backendCount)
-
-        findPreference<Preference>(PREF_EXPOSURE)?.isVisible = NearbyPreferencesIntegration.isAvailable
-        findPreference<Preference>(PREF_EXPOSURE)?.icon = NearbyPreferencesIntegration.getIcon(context)
-        findPreference<Preference>(PREF_EXPOSURE)?.summary = NearbyPreferencesIntegration.getExposurePreferenceSummary(context)
     }
 
     companion object {
@@ -107,7 +99,6 @@ class SettingsFragment : ResourceSettingsFragment() {
         const val PREF_GCM = "pref_gcm"
         const val PREF_UNIFIEDNLP = "pref_unifiednlp"
         const val PREF_CHECKIN = "pref_checkin"
-        const val PREF_EXPOSURE = "pref_exposure"
         const val PREF_CAST_HIDE_LAUNCHER_ICON = "pref_hide_launcher_icon"
     }
 

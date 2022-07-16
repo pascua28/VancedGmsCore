@@ -7,13 +7,6 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
-configurations {
-    withMapboxImplementation
-    withVtmImplementation
-    withNearbyImplementation
-    withoutNearbyImplementation
-}
-
 dependencies {
     implementation "com.squareup.wire:wire-runtime:$wireVersion"
     implementation "de.hdodenhof:circleimageview:1.3.0"
@@ -34,8 +27,6 @@ dependencies {
     implementation project(':play-services-conscrypt-provider-core')
     implementation project(':play-services-cronet-core')
     implementation project(':play-services-location-core')
-    withNearbyImplementation project(':play-services-nearby-core')
-    withNearbyImplementation project(':play-services-nearby-core-ui')
     implementation project(':play-services-oss-licenses-core')
     implementation project(':play-services-tapandpay-core')
     implementation project(':play-services-vision-core')
@@ -51,9 +42,6 @@ dependencies {
     runtimeOnly "org.microg.nlp:location-v2:$nlpVersion"
     runtimeOnly "org.microg.nlp:location-v3:$nlpVersion"
     implementation "org.microg.nlp:ui:$nlpVersion"
-
-    withMapboxImplementation project(':play-services-maps-core-mapbox')
-    withVtmImplementation project(':play-services-maps-core-vtm')
 
     // AndroidX UI
     implementation "androidx.multidex:multidex:$multidexVersion"
@@ -98,12 +86,6 @@ android {
         main {
             java.srcDirs += 'src/main/kotlin'
         }
-        withNearby {
-            java.srcDirs += 'src/withNearby/kotlin'
-        }
-        withoutNearby {
-            java.srcDirs += 'src/withoutNearby/kotlin'
-        }
     }
 
 
@@ -111,24 +93,6 @@ android {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-
-    flavorDimensions 'maps', 'nearby'
-    productFlavors {
-        withMapbox {
-            dimension 'maps'
-        }
-        withVtm {
-            dimension 'maps'
-            versionNameSuffix '-vtm'
-        }
-        withNearby {
-            dimension 'nearby'
-        }
-        withoutNearby {
-            dimension 'nearby'
-            versionNameSuffix '-noen'
         }
     }
 
