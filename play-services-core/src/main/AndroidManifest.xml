@@ -584,12 +584,6 @@
             </intent-filter>
         </service>
 
-        <service android:name="org.microg.gms.wallet.PaymentService">
-            <intent-filter>
-                <action android:name="com.google.android.gms.wallet.service.BIND" />
-            </intent-filter>
-        </service>
-
         <service android:name="org.microg.gms.cast.CastDeviceControllerService">
             <intent-filter>
                 <action android:name="com.google.android.gms.cast.service.BIND_CAST_DEVICE_CONTROLLER_SERVICE" />
@@ -716,8 +710,6 @@
                 <action android:name="com.google.android.gms.ocr.service.internal.START" />
                 <action android:name="com.google.android.gms.ocr.service.START" />
                 <action android:name="com.google.android.gms.panorama.service.START" />
-                <action android:name="com.google.android.gms.pay.service.BIND" />
-                <action android:name="com.google.android.gms.payse.service.BIND" />
                 <action android:name="com.google.android.gms.people.contactssync.service.START" />
                 <action android:name="com.google.android.gms.photos.autobackup.service.START" />
                 <action android:name="com.google.android.gms.plus.service.default.INTENT" />
