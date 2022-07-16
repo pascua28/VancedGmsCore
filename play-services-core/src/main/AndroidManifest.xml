@@ -348,7 +348,8 @@
 
         <!-- Games -->
 
-        <service android:name="org.microg.gms.games.GamesStubService">
+        <service android:name="org.microg.gms.games.GamesStubService"
+                 android:enabled="false">
             <intent-filter>
                 <action android:name="com.google.android.gms.games.service.START" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -521,6 +522,7 @@
         </service>
         <service
             android:name=".analytics.service.AnalyticsService"
+            android:enabled="false"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.google.android.gms.analytics.service.START" />
@@ -540,18 +542,21 @@
                 <action android:name="com.google.android.gms.ads.gservice.START" />
             </intent-filter>
         </service>
-        <service android:name="org.microg.gms.feedback.FeedbackService">
+        <service android:name="org.microg.gms.feedback.FeedbackService"
+                 android:enabled="false">
             <intent-filter>
                 <action android:name="com.google.android.gms.feedback.internal.IFeedbackService" />
             </intent-filter>
         </service>
-        <service android:name="org.microg.gms.ads.AdvertisingIdService">
+        <service android:name="org.microg.gms.ads.AdvertisingIdService"
+                 android:enabled="false">
             <intent-filter>
                 <action android:name="com.google.android.gms.ads.identifier.service.START" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </service>
-        <service android:name="org.microg.gms.clearcut.ClearcutLoggerService">
+        <service android:name="org.microg.gms.clearcut.ClearcutLoggerService"
+                 android:enabled="false">
             <intent-filter>
                 <action android:name="com.google.android.gms.clearcut.service.START" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -609,7 +614,8 @@
             </intent-filter>
         </service>
 
-        <service android:name="org.microg.gms.usagereporting.UsageReportingService">
+        <service android:name="org.microg.gms.usagereporting.UsageReportingService"
+                 android:enabled="false">
             <intent-filter>
                 <action android:name="com.google.android.gms.usagereporting.service.START" />
             </intent-filter>
