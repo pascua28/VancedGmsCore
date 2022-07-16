@@ -233,7 +233,8 @@
 
         <!-- Car -->
 
-        <service android:name="org.microg.gms.car.CarService">
+        <service android:name="org.microg.gms.car.CarService"
+                 android:enabled="false">
             <intent-filter>
                 <action android:name="com.google.android.gms.car.service.START" />
 
@@ -496,6 +497,7 @@
 
         <service
             android:name="org.microg.gms.measurement.MeasurementService"
+            android:enabled="false"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.google.android.gms.measurement.START" />
@@ -503,39 +505,32 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </service>
-        <service android:name="org.microg.gms.mdm.NetworkQualityService">
+        <service android:name="org.microg.gms.mdm.NetworkQualityService"
+                 android:enabled="false">
             <intent-filter>
                 <action android:name="com.google.android.gms.mdm.services.START" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </service>
-        <service android:name="org.microg.gms.icing.LightweightIndexService">
+        <service android:name="org.microg.gms.icing.LightweightIndexService"
+                 android:enabled="false">
             <intent-filter>
                 <action android:name="com.google.android.gms.icing.LIGHTWEIGHT_INDEX_SERVICE" />
             </intent-filter>
         </service>
-        <service android:name="org.microg.gms.icing.IndexService">
+        <service android:name="org.microg.gms.icing.IndexService"
+                 android:enabled="false">
             <intent-filter>
                 <action android:name="com.google.android.gms.icing.INDEX_SERVICE" />
             </intent-filter>
         </service>
-        <service
-            android:name=".analytics.service.AnalyticsService"
-            android:enabled="false"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.google.android.gms.analytics.service.START" />
-            </intent-filter>
-        </service>
-        <service android:name="org.microg.gms.playlog.PlayLogService">
+        <service android:name="org.microg.gms.playlog.PlayLogService"
+                 android:enabled="false">
             <intent-filter>
                 <action android:name="com.google.android.gms.playlog.service.START" />
             </intent-filter>
         </service>
-        <service
-            android:name=".gcm.http.GoogleHttpService"
-            android:exported="true" />
 
         <service android:name="org.microg.gms.ads.GService">
             <intent-filter>
@@ -590,7 +585,8 @@
             </intent-filter>
         </service>
 
-        <service android:name="org.microg.gms.appinvite.AppInviteService">
+        <service android:name="org.microg.gms.appinvite.AppInviteService"
+                 android:enabled="false">
             <intent-filter>
                 <action android:name="com.google.android.gms.appinvite.service.START" />
             </intent-filter>
@@ -602,7 +598,8 @@
             </intent-filter>
         </service>
 
-        <service android:name="org.microg.gms.udc.FacsCacheService">
+        <service android:name="org.microg.gms.udc.FacsCacheService"
+                 android:enabled="false">
             <intent-filter>
                 <action android:name="com.google.android.gms.facs.cache.service.START" />
             </intent-filter>
